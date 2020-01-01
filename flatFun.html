@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h5>实现一个数组拉平函数</h5>
+    <pre>
+        <code>
+                Array.prototype.flate = function(num){
+                    let selfArr = this
+                    while(num--){
+                            for(let i = 0;i < selfArr.length;i++){
+                                    if(selfArr[i] instanceof Array){
+                                let len = selfArr[i].length - 1
+                                selfArr.splice(i,1,...selfArr[i])
+                                i += len
+                            }
+                        }
+                    }
+                }
+                let aaa = [1,2,[[[[3,3,3,3],2,2,2,2],1,1,1,],3,4,3,[2,[1,[3,3,3],1],2,1,6]],5,6,79,2]
+                aaa.flate(2)
+                console.log(aaa)
+        </code>
+    </pre>
+    <script>
+        //有num传入按层级展开，没有的话全部展开
+        Array.prototype.flat = function(num){
+            let selfArr = this
+            if(!num){
+                while(true){
+                    let flag = false
+                    selfArr.map((item,index)=>{
+                        if(item instanceof Array){
+                            selfArr.splice(index,1,...item)
+                            flag = true
+                        }
+                    })
+                    if(!flag){
+                        break
+                    }
+                }
+            }else{
+                while(num--){
+                    for(let i = 0;i<selfArr.length;i++){
+                        if(selfArr[i] instanceof Array){
+                            let len = selfArr[i].length - 1
+                            selfArr.splice(i,1,...selfArr[i])
+                            i += len
+                        }
+                    }
+                }
+            }    
+        }
+        let aaa = [1,2,[[[[3,3,3,3],2,2,2,2],1,1,1,],3,4,3,[2,[1,[3,3,3],1],2,1,6]],5,6,79,2]
+        //aaa.flat()
+        //console.log(aaa)
+
+        Array.prototype.flate = function () {
+            let res = [];
+            for (let i = 0; i < this.length; i++) {
+                if (typeof this[i] == 'object') {
+                    res = res.concat(Array.prototype.flate.call(this[i]));
+                } else {
+                    res.push(this[i]);
+                }
+            }
+            return res;
+        };
+        aaa.flat()
+        console.log(aaa)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h5>
+        `
+        一个字典['I', 'have', 'a', 'book', 'good']，实现一个函数，判断一个字符串中是否都是出自字典中的，输出true/false
+
+        例如：
+
+        输入'I have a book' 输出 true
+
+        输入 'this is a good book' 输出 false
+        `
+    </h5>
+    <pre>
+        <code>
+                function isFromDic(dic,targetStr){
+                    let obj = {}
+                    dictionary.forEach(item=>{
+                        obj[item] = 0;
+                    })
+                    targetStr = targetStr.split(' ')
+                    targetStr.forEach(item=>{
+                        obj[item] = 0
+                    })
+                    let len = Object.keys(obj).length
+                    if(len > dictionary.length){
+                        return false
+                    }
+                    return true
+                }
+        
+        
+                let dictionary = ['I', 'have', 'a', 'book', 'good'];
+                let testStr = 'I have a book'
+                let testStr2 = 'this is a good book'
+                console.log(isFromDic(dictionary,testStr),111111)
+                console.log(isFromDic(dictionary,testStr2),222)
+        </code>
+    </pre>
+    <script>
+        
+        function isFromDic(dic,targetStr){
+            let obj = {}
+            dictionary.forEach(item=>{
+                obj[item] = 0;
+            })
+            targetStr = targetStr.split(' ')
+            targetStr.forEach(item=>{
+                obj[item] = 0
+            })
+            let len = Object.keys(obj).length
+            if(len > dictionary.length){
+                return false
+            }
+            return true
+        }
+
+
+        let dictionary = ['I', 'have', 'a', 'book', 'good'];
+        let testStr = 'I have a book'
+        let testStr2 = 'this is a good book'
+        console.log(isFromDic(dictionary,testStr),111111)
+        console.log(isFromDic(dictionary,testStr2),222)
+    </script>
+</body>
+</html>

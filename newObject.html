@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h5>实现new操作符</h5>
+    <script>
+        function newObj(Fun,...args){
+            let o = {}
+            o._proto_=Fun.prototype
+            Fun.apply(o,[...args])
+            return o;
+        }
+
+        function Person(name,age){
+            this.name = name
+            this.age = age
+        }
+
+        class test{
+            constructor(test1,test2){
+                this.test1=test1
+                this.test2=test2
+            }
+        }
+        let c=new test();
+        console.log(c)
+        console.dir(test)
+
+        let a = newObj(Person,'liuliu',12)
+        console.log(a.name)
+        console.log(a.age)
+        console.log(a._proto_)
+        console.log(Person.prototype)
+        let b = new Person('ll',1)
+        console.dir(b)
+        console.log(b.age)
+        console.log(b.__proto__)
+        console.log(b.prototype)
+    </script>
+</body>
+</html>

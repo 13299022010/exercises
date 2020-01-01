@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>googleSearch</title>
+    <style>
+    @font-face {
+    font-family: 'iconfont';  /* project id 1578921 */
+    src: url('//at.alicdn.com/t/font_1578921_dd2cetxhq.eot');
+    src: url('//at.alicdn.com/t/font_1578921_dd2cetxhq.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1578921_dd2cetxhq.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1578921_dd2cetxhq.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1578921_dd2cetxhq.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1578921_dd2cetxhq.svg#iconfont') format('svg');
+    }
+    body *{
+        font-family: iconfont;
+    }
+    .search-icon::after{
+        content: "\e600";
+        width: 24px;
+        height: 24px;
+    }
+    .container{
+        width: 45vw;
+        min-width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: #999;
+    }
+    .container img{
+        width: 350px;
+        height: 120px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .search{
+        position: relative;
+        width: 100%;
+        height: 40px;
+        box-shadow: 1px 3px 3px 3px #ccc;
+        border-radius: 18px;
+    }
+    .search input{
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 0 30px;
+        border-radius: 18px;
+        border: none;
+        font-size: 20px;
+        outline: none;
+    }
+    .search span:first-of-type{
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+    }
+    .search span:last-of-type{
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./google.jpg" alt="google logo">
+        <div class="search">
+            <span class="search-icon"></span>
+            <input type="text" placeholder="I`m Google Search!">
+            <span class="tell-icon">&#xe613;</span>
+        </div>
+    </div>
+</body>
+</html>

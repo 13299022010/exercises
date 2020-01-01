@@ -1,0 +1,49 @@
+<!-- 一个div垂直居中
+其距离屏幕左右两边各10px
+其高度始终是宽度的50%
+
+div中有文本'A'
+其font—size:20px
+文本水平垂直居中 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            margin:0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            height: 100vh;
+        }
+        .content{
+            height: 50vw;
+            width: 100%;
+            margin: auto 10px;
+            background-color: brown;
+            display: flex;
+            flex-direction: column;
+        }
+        .text-style{
+            font-size: 20px;
+            align-self: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <span class="text-style">A</span>
+        </div>
+    </div>
+    
+</body>
+</html>

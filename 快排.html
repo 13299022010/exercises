@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h5>快排</h5>
+    <pre>
+        <code>
+                function quickSort(arr){
+                    if(arr.length < =1){
+                        return arr
+                    }
+                    let left = []
+                    let right = []
+                    let begin = 0
+                    let end = arr.length-1
+                    let flagi = Math.round((begin+end)/2)
+                    let flag = arr[flagi]
+                    for(let i = 0;i < arr.length;i++){
+                        if(arr[i]>flag){
+                            right.push(arr[i])
+                        }else if(arr[i] < flag){
+                            left.push(arr[i])
+                        }
+                    }
+                    return quickSort(left).concat(flag,quickSort(right))
+                }
+                let test0=[1,3,2,5,4,6,7]
+                let test = [3.2,2,54,75,2,14,4,9,0,-1,23,-54,-90]
+                let a = quickSort(test)
+                console.log(a)
+        </code>
+    </pre>
+    <script>
+        function quickSort(arr){
+            if(arr.length<=1){
+                return arr
+            }
+            let left = []
+            let right = []
+            let begin = 0
+            let end = arr.length-1
+            let flagi = Math.round((begin+end)/2)
+            let flag = arr[flagi]
+            for(let i = 0;i<arr.length;i++){
+                if(arr[i]>flag){
+                    right.push(arr[i])
+                }else if(arr[i]<flag){
+                    left.push(arr[i])
+                }
+            }
+            return quickSort(left).concat(flag,quickSort(right))
+        }
+        let test0=[1,3,2,5,4,6,7]
+        let test = [3.2,2,54,75,2,14,4,9,0,-1,23,-54,-90]
+        let a = quickSort(test)
+        console.log(a)
+    </script>
+</body>
+</html>

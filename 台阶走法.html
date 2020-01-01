@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h5>一个长阶梯有n级，可以一次走1级，一次走2级，一共有多少种走法？</h5>
+    <pre>
+            递归实现. 
+ 
+            重要的是理解这个逻辑 
+            
+            假设有f(n)种走法， 
+            
+            当走到N-1阶台阶时，有f(n-1)种走法，再走一步走完。 
+           
+             当走到n-2阶台阶时，有f(n-2)种走法， 再走1+1或2，走完。其中走1+1和走到n-1阶时的f(n-1)重复。 
+           
+             所以f(n)=f(n-1))+f(n-2) 
+            
+            
+           public int findStep(int n) {
+                   if(n==0 || n==1 || n==2) {
+                       return n;
+                   }
+                   
+                   return findStep(n-1)+findStep(n-2);
+               }
+    </pre>
+    <div class="parent">parent
+        <div class="child">child</div>
+    </div>
+    <script>
+        let p = document.getElementsByClassName('parent')[0]
+        let c = document.getElementsByClassName('child')[0]
+        p.addEventListener('click',(e)=>{
+            e.target.children[0].style.color = "blue"
+            console.log(e)
+        })
+        // c.addEventListener('click',(e)=>{
+        //     c.style.background = "red"
+        //     e.stopPropagation()
+        // })
+    </script>
+</body>
+</html>

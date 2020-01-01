@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+                async function a1 () {
+                    console.log('a1 start')
+                    await a2()
+                    await a3()
+                    console.log('a1 end')
+                }
+                async function a2 () {
+                    console.log('a2')
+                }
+
+                async function a3 () {
+                    console.log('a3')
+                }
+        
+                console.log('script start')
+        
+                setTimeout(() => {
+                    console.log('setTimeout')
+                }, 0)
+        
+                Promise.resolve().then(() => {
+                    console.log('promise1')
+                })
+        
+                a1()
+        
+                let promise2 = new Promise((resolve) => {
+                    resolve('promise2.then')
+                    console.log('promise2')
+                })
+        
+                promise2.then((res) => {
+                    console.log(res)
+                    Promise.resolve().then(() => {
+                        console.log('promise3')
+                    })
+                })
+                console.log('script end')
+        </code>
+    </pre>
+    <article>
+            async是promise的语法糖，在事件轮询的过程中，有
+            promise宏队列和settimeout宏队列，每一个具体的
+            promise代码块或者settimeout代码块,如果代码块中
+            有异步嵌套的话又称为微队列，微队列一层一层的执行
+            整体上代码块的执行是从上到下的逐行执行，遇到promise
+            或者settimeout微队列的是侯promise会把.then(){}
+            代码块中的内容放入promise宏队列，async和await会把
+            await 表达式的下一句表达式开始放入promise宏队列
+            settimeout会把函数体中的语句放入settimeout宏队列
+            等其他同步的语句执行完之后再执行promise队列中的语句
+            然后再执行settimeout队列中的语句
+
+            其中promise的resolve（）不同于return，其后面的语句是
+            还可以执行的，并且是按顺序同步执行，
+
+            async相当于new了一个promise对象，其中第一个await那一行
+            包括之前的语句都是同步执行
+    </article>
+    <script>
+        async function a1 () {
+            console.log('a1 start')
+            await a2()
+            await a3()
+            console.log('a1 end')
+        }
+        async function a2 () {
+            console.log('a2')
+        }
+
+        async function a3 () {
+            console.log('a3')
+        }
+
+        console.log('script start')
+
+        setTimeout(() => {
+            console.log('setTimeout')
+            setTimeout(() => {
+                console.log('setTimeout11')
+            }, 0)
+        }, 0)
+
+        Promise.resolve().then(() => {
+            console.log('promise1')
+            Promise.resolve().then(() => {
+                console.log('promise4')
+                Promise.resolve().then(() => {
+                    console.log('promise5')
+                })
+            })
+        })
+        Promise.resolve().then(() => {
+            console.log('promise9')
+            Promise.resolve().then(() => {
+                console.log('promise10')
+            })
+        })
+
+        a1()
+
+        let promise2 = new Promise((resolve) => {
+            resolve('promise2.then')
+            console.log('promise2')
+        })
+
+        promise2.then((res) => {
+            console.log(res)
+            Promise.resolve().then(() => {
+                console.log('promise3')
+            })
+        })
+        console.log('script end')
+        
+    </script>
+</body>
+</html>

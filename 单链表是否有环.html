@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h5>判断单链表是否有环</h5>
+    <pre>
+        <code>
+                function hasCircle(node){
+                    let fastNode = node.next&&node.next.next?node.next.next:null
+                    let slowNode = node.next?node.next:null
+                    while(fastNode.next&&fastNode.next.next){
+                        if(fastNode==slowNode){
+                            return true
+                        }else{
+                            fastNode = fastNode.next.next
+                            slowNode = slowNode.next
+                        }
+                    }
+                    return false
+                }
+                class Node{
+                    constructor(value,next){
+                        this.node = value,
+                        this.next = next
+                    }
+                }
+                let node5 = new Node(5,null)
+                let node6 = new Node(6,null)
+                let node7 = new Node(7,null)
+                let node8 = new Node(8,null)
+                let node9 = new Node(9,null)
+                let node10 = new Node(10,null)
+                let node11 = new Node(11,null)
+                node5.next = node6
+                node6.next = node7
+                node7.next = node8
+                node8.next = node9
+                node9.next = node10
+                node10.next = node11
+                node11.next = node8
+                console.log(hasCircle(node5))
+                /*此方法不能检测特殊情况，只能检测头尾相连的环*/
+                function isCircle(node){
+                    let nextFlag = node
+                    while(node.next){
+                        if(node.next ==nextFlag){
+                            return true
+                        }else{
+                            node = node.next
+                        }
+                    }
+                    return false
+                }
+                
+                let node1 = new Node(1,null)
+                let node2 = new Node(2,null)
+                let node3 = new Node(3,null)
+                let node4 = new Node(4,null)
+                node1.next = node2
+                node2.next = node3
+                node3.next = node4
+                node4.next = node1
+                console.log(node3)
+                console.log(isCircle(node3))
+        </code>
+    </pre>
+    <script>
+        function hasCircle(node){
+            let fastNode = node.next&&node.next.next?node.next.next:null
+            let slowNode = node.next?node.next:null
+            while(fastNode.next&&fastNode.next.next){
+                if(fastNode==slowNode){
+                    return true
+                }else{
+                    fastNode = fastNode.next.next
+                    slowNode = slowNode.next
+                }
+            }
+            return false
+        }
+        class Node{
+            constructor(value,next){
+                this.node = value,
+                this.next = next
+            }
+        }
+        let node5 = new Node(5,null)
+        let node6 = new Node(6,null)
+        let node7 = new Node(7,null)
+        let node8 = new Node(8,null)
+        let node9 = new Node(9,null)
+        let node10 = new Node(10,null)
+        let node11 = new Node(11,null)
+        node5.next = node6
+        node6.next = node7
+        node7.next = node8
+        node8.next = node9
+        node9.next = node10
+        node10.next = node11
+        node11.next = node8
+        console.log(hasCircle(node5))
+        /*此方法不能检测特殊情况，只能检测头尾相连的环*/
+        function isCircle(node){
+            let nextFlag = node
+            while(node.next){
+                if(node.next ==nextFlag){
+                    return true
+                }else{
+                    node = node.next
+                }
+            }
+            return false
+        }
+        
+        let node1 = new Node(1,null)
+        let node2 = new Node(2,null)
+        let node3 = new Node(3,null)
+        let node4 = new Node(4,null)
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
+        node4.next = node1
+        console.log(node3)
+        console.log(isCircle(node3))
+    </script>
+</body>
+</html>
