@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .tip{
+            position: relative;
+            cursor: pointer;
+        }
+        .tip:hover .tooltip{
+            display: block;
+        }
+        .tooltip{
+            border-radius: 5px;
+            background: rebeccapurple;
+            position: absolute;
+            padding: 3px;
+            font-size: 12px;
+            top: calc(100% + 10px);
+            display: none;
+        }
+        .tooltip::before{
+            content: "";
+            display: block;
+            border: 8px solid transparent;
+            border-bottom-color: rebeccapurple;
+            position: absolute;
+            top: -16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tip">这是一段文字
+        <div class="tooltip">这是我们这会对文字详细的介绍，
+            会在悬浮的时候出现在弹窗里面
+        </div>
+    </div>
+</body>
+</html>

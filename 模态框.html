@@ -5,30 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-</head>
-<body>
-    <div class="parent">
-        <div class="child">
-            
-        </div>
-    </div>
     <style>
-        div{
-            border: 2px solid black;
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        .content>header>a{
+            float: right;
+            font-size: 24px;
+            line-height: 10px;
+        }
+        .model:target{
+            display: block;
+        }
+        .model{
+            position: fixed;
+            top:0;
+            bottom:0;
+            right: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.6);
+            display: none;
+        }
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 40%;
+            background-color: whitesmoke;
+            border-radius: 10px;
             padding: 10px;
-            margin: 10px;
-        }
-        .parent{
-            position: relative;
-            width:50vh;
-            height: 50vh;
-        }
-        .child{
-            width:100px;
-            height: 100px;
-            
-            
         }
     </style>
+</head>
+<body>
+    <button class="btn"><a href="#model">点我</a></button>
+    <div class="model" id="model">
+        <div class="content">
+            <header>这里是标题<a href="#">x</a></header>
+            <hr>
+            <main>
+                这里是内容
+            </main>
+        </div>
+    </div>
 </body>
 </html>
