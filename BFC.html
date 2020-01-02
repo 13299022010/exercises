@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>块级格式化上下文</title>
+</head>
+<body>
+    <style>
+        .float{
+            width:200px;
+            height: 100px;
+            float: left;
+            border:black 1px solid;
+            background-color: red;
+        }
+        .clear-float{
+            display: flow-root;
+            border:black 1px solid;
+            padding: 10px;
+        }
+        .box{
+            width:300px;
+            height: 50px;
+            border:black 1px solid;
+            background-color:green;
+        }
+        .blockbox{
+            width:300px;
+            height: 50px;
+            border:black 1px solid;
+            background-color:yellow;
+            display: flow-root;
+        }
+        .father-Block{
+            width:300px;
+            display: flow-root;
+            background-color:blue;
+            margin: 40px;
+        }
+        .father-Block1{
+            margin: 40px;
+            width:300px;
+            background-color:green;
+        }
+        .child{
+            width:200px;
+            height: 100px;
+            margin:20px;
+            border:black 1px solid;
+            background-color: red;
+        }
+    </style>
+    <pre>
+• 形成条件
+1 根元素html
+2 float属性不为none；
+3 position为absolute、fixed、sticky
+4 display为inline-block、table-cell
+5 display: flow-root 或者 flow-root list-item
+6 overflow为hidden、scroll、auto；
+推荐使用 display: flow-root ，没有副作用
+BFC特性
+• 特性
+1 内部的块级盒子会在垂直方向，一个接一个地放置。
+2 两个盒子垂直方向的间距由margin决定。属于同一个
+BFC的两个相邻盒子的外边距会发生折叠。
+3 BFC的区域不会与浮动盒重叠。
+4 BFC就是页面上的一个隔离的独立容器，容器里面的子
+元素不会影响到外面的元素。反之也如此。
+5 计算BFC的高度时，浮动元素也参与计算。
+    </pre>
+    特性5<div class="clear-float">
+        <div class="float">1</div>
+        <div class="float">2</div>
+        <div class="float">3</div>
+    </div>
+<hr>
+    特性3 <div class="float">float</div>
+    <div class="box">box</div>
+    <div class="blockbox">blockbox</div>
+    <hr>
+    特性4 <div style="border: 1px solid;">
+        <div class="father-Block">
+            <div class="child">BFC内部的布局不影响外部</div>
+        </div>
+        <div class="father-Block1">
+            <div class="child">内外边距合并</div>
+        </div>
+    </div>
+</body>
+</html>

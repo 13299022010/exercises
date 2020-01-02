@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>层叠上下文</title>
+</head>
+<body>
+    <style>
+    div{
+        border: black 1px solid;
+        width:200px;
+        height: 300px;
+    }
+    .box1{
+        background-color: blue;
+        position: absolute;
+        top:50px;
+        left: 50px;
+        z-index: auto;
+    }
+    .box2{
+        background-color: blueviolet;
+        position: absolute;
+        top:80px;
+        left: 80px;
+        z-index: 11;
+    }
+    .box3{
+        background-color: red;
+        position: absolute;
+        top:100px;
+        left: 100px;
+        z-index: auto;
+    }
+    .box4{
+        background-color: yellow;
+        position: absolute;
+        top:120px;
+        left: 120px;
+        z-index: 0;
+    }
+    pre{
+        position: relative;
+        z-index: 15;
+        color: white;
+        font-size: 24px;
+    }
+    body{
+        background-color: black;
+    }
+    .float{
+        float: left;
+        background-color: violet;
+        /* 普通元素之上，定位元素之下 */
+    }
+    </style>
+    <div class="box">
+        <pre>
+            形成条件
+ü 根元素(HTML)
+ü z-index不为auto的绝对定位和相对定位元素
+ü fixed 定位元素和sticky定位元素
+ü z-index不为auto的flex item
+ü z-index不为auto的grid item
+ü opacity小于1的元素
+ü transform不为none的元素
+ü 其它不常用的... • 层叠规则
+ü 属于同一层叠上下文的同级元素比较
+ü 当层叠上下文属于某一层级时，其内的层叠上下文都属于对应层级
+        </pre>
+        <div class="box1">1
+            <div class="box2">2</div>
+        </div>
+        <div class="box3">3
+            <div class="box4">4</div>
+        </div>
+        <div class="float">float</div>
+    </div>
+</body>
+</html>
