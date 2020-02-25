@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex垂直水平居中</title>
+</head>
+<body>
+    <style>
+        .father{
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+            height: 500px;
+            border: black 1px solid;
+            align-items: center;/*侧轴上的元素*/
+            justify-content: center;/*主轴上的内容*/
+        }
+        .child{
+            background: red;
+            width: 100px;
+        }
+    </style>
+    <div class="father">
+        <div class="child">child</div>
+        <div class="child">child</div>
+        <div class="child">child</div>
+        <div class="child">child</div>
+        <div class="child">child</div>
+    </div>
+    <div class="parent">
+        <div class="kid">hello</div>
+    </div>
+    <style>
+    .parent{
+        width: 400px;
+        height: 400px;
+        display: flex;
+        border: 1px solid;
+    }
+    .kid{
+        margin: auto;
+        /* margin-top: auto; */
+        background-color: red;
+    }
+    </style>
+</body>
+</html>

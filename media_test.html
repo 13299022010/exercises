@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>打印字体</p>
+    <p>正常字体</p>
+    <p>dayu 500 小于990px</p>
+    <style>
+        p{
+            font-size: 20px;
+        }
+        @media print{
+            p:first-child{
+                font-size: 60px;
+            }
+        }
+        @media screen and (max-width: 990px) and (min-width: 550px){
+            p{
+                background-color: brown;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./radar.css">
+    <title>radar</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="operation">
+                <div>
+                    <span>FDPC节点监控</span>
+                </div>
+                <div></div>
+                <div>
+                    <span>-</span>
+                    <span class="middle"></span>
+                    <span>x</span>
+                </div>
+            </div>
+        </header>
+        <section class="tools">
+            <span>工具T</span>
+            <span>文件</span>
+            <span>组件</span>
+        </section>
+        <aside>
+            <div><span>列表窗口</span><span class="middle"></span><span>x</span></div>
+            <div><span class="icon list-icon"></span>服务列表</div>
+            <div>
+                <div><span class="icon all-icon"></span>All</div>
+                <div class="selected"><span class="icon team-icon"></span>FDPC</div>
+                <div><span class="icon team-icon"></span>MTD</div>
+            </div>
+            <div><span class="icon bkg-icon"></span>背景设置</div>
+        </aside>
+        <main>
+            <div class="team">
+                <div class="client icon"></div>
+                <div class="server1 normal"></div>
+                <div class="server2 normal"></div>
+                <div class="server3 alarm"></div>
+                <div class="line1 line-common"></div>
+                <div class="line2 line-common"></div>
+                <div class="line3 line-common"></div>
+                <div class="info1 info-common">
+                    <div>IP: 10.0.2.15</div>
+                    <div>CPU: 3.9%</div>
+                    <div>Memory: 18.7%</div>
+                    <div>NetStat: Normal</div>
+                </div>
+                <div class="info2 info-common">
+                    <div>IP: 10.0.2.16</div>
+                    <div>CPU: 4.1%</div>
+                    <div>Memory: 19.5%</div>
+                    <div>NetStat: Normal</div>
+                </div>
+                <div class="info3 info-common">
+                    <div>IP: 10.0.2.17</div>
+                    <div>CPU: <span>null</span></div>
+                    <div>Memory: <span>null</span></div>
+                    <div>NetStat: <span>Disconnect</span></div>
+                </div>
+            </div>
+        </main>
+        <section class="control">
+            <div>
+                <span class="active">告警信息</span>
+                <span>操作提示</span>
+            </div>
+            <div></div>
+        </section>
+        <footer>
+            <div><span class="state"></span>严重告警<span class="btn">控制台</span></div>
+        </footer>
+    </div>
+</body>
+</html>

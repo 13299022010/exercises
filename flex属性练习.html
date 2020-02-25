@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex属性练习</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">1111</div>
+        <div class="box">222222</div>
+        <div class="box">33333</div>
+        <div class="box">4</div>
+        
+    </div>
+    <div class="wrapper1">
+        <div class="box1">1111</div>
+        <div class="box1">222222</div>
+        <div class="box1">33333</div>
+        <div class="box1">4</div>
+        
+    </div>
+    <style>
+    .wrapper{
+        display: flex;
+        /* flex-direction: column;
+        flex-wrap: wrap; */
+        border: 1px solid;
+        justify-content: space-evenly;
+        width:800px;
+        height: 200px;
+    }
+    .box{
+        border:1px solid red;
+    }
+    
+    .box:nth-child(1){
+        flex-grow: 1;
+        flex-basis: 100px;/*（800-250-50-100-70）/（1+2+1）*1+100*如果内容宽度大于基础宽度按照元素宽度计算*/
+    }
+    .box:nth-child(2){
+        flex-grow: 2;
+        flex-basis: 100px;
+    }
+    .box:nth-child(3){
+        order: 1;
+        /* flex-grow: 1; */
+        flex-basis: 250px;/*空间富足的情况下满足他，不足的时候压缩*/
+        width: 100px;
+    }
+    .box:nth-child(4){
+        flex-grow: 1;
+        flex-basis: 100px;
+    }
+    .wrapper1{
+        display: flex;
+        /* flex-direction: column;
+        flex-wrap: wrap; */
+        border: 1px solid;
+        /* justify-content: space-evenly; */
+        width:800px;
+        align-content:space-between ;
+        height: 200px;
+        flex-wrap: ;
+    }
+    .box1{
+        border:1px solid red;
+    }
+    
+    .box1:nth-child(1){
+         flex-grow: 1; /*39.54没有flex-basis则按内容宽度计算*/
+        /*（800-250-50-100-70）/（1+2+1）*1+100*如果内容宽度大于基础宽度按照元素宽度计算*/
+    }
+    .box1:nth-child(2){
+         flex-grow: 2;/* 58.3*/
+        /* flex-basis: 100px; */
+    }
+    .box1:nth-child(3){
+        order: 1;
+        /* flex-grow: 1;*/
+        flex-basis: 250px;/*空间富足的情况下满足他，不足的时候压缩*/
+        width: 100px;
+    }
+    .box1:nth-child(4){
+        flex-grow: 1;/* 11.4*/
+        /* flex-basis: 100px; */
+    }
+    </style>
+</body>
+</html>

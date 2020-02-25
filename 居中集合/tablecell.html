@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .wrapper{
+            display: table;
+            width: 100%;
+        }    
+        .box{
+            width: 100%;
+            height:300px;
+            border: 1px solid red;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle; /*只有table-cell/inline/inline-block中有效*/
+        }
+        .box>div{
+            display: inline-block;
+        }
+    </style>
+    <div class="wrapper">
+        <div class="box">
+            <div>center</div>
+        </div>
+    </div>
+</body>
+</html>

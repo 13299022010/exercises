@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>形成层叠上下文</title>
+</head>
+<body>
+    <style>
+    .box{
+        width:200px;
+        height: 200px;
+        border:solid 1px black;
+    }
+    .box1{
+        position: fixed;
+        background-color: rgba(0,255,0,0.8);
+        top: 30px;
+        left: 30px;
+    }
+    .box2{
+        position: absolute;
+        z-index:100;
+        background-color: rgba(0,0,255,0.8);
+        top: 30px;
+        left: 30px;
+    }
+    .box3{
+        position: sticky;
+        background-color: rgba(255,0,255,0.8);
+        top: -30px;
+        left: -30px;
+    }
+    .box4{
+        position: absolute;
+        z-index: 4;
+        background-color: rgba(255,0,0,0.8);
+        top: 30px;
+        left: 30px;
+    }
+    </style>
+    <div class="box box1">父亲1
+        <div class="box box2">孩子2</div>
+    </div>
+    <div class="box box3">父亲3
+        <div class="box box4">孩子4</div>
+    </div>
+</body>
+</html>

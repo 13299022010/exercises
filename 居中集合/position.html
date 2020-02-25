@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+         .parent{
+             position: relative;
+             height: 300px;
+             border: 1px red solid;
+         }
+         .child{
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             background-color: brown;
+             transform: translate(-50%,-50%);
+             /* margin: 100px 100px 20px 20px;定位是以外边距为起点计算的，边距影响布局 */
+         }
+    </style>
+    <div class="parent">
+        <divc class="child">center</divc>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex等分排列</title>
+</head>
+<body>
+    <div class="father1">
+        <div class="child">child</div>
+        <div class="child">child</div>
+        <div class="child">child</div>
+    </div>
+    <div class="father">
+        <div class="child">child</div>
+        <div class="child">child</div>
+        <div class="child">child</div>
+    </div>
+    <style>
+    .father1{
+        display: flex;
+    }
+    .father{
+        display: inline-flex;
+    }
+    .child{
+        border:1px solid;
+        flex-grow: 1;
+    }
+    .child:first-child{
+        flex-grow: 3;
+    }
+    .child:last-child{
+        flex-grow: 2;
+    }
+    </style>
+</body>
+</html>

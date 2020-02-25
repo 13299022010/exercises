@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex三栏布局</title>
+</head>
+<body>
+    <style>
+    *{
+        margin: 0;
+    }
+    header{
+        height: 50px;
+        background-color: brown;
+    }
+    footer{
+        height: 50px;
+        background-color: brown;
+    }
+    .container{
+        height: calc(100vh - 100px);
+        display: flex;
+    }
+    aside{
+        background-color: cornflowerblue;
+        flex-basis: 150px;
+    }
+    .right{
+        order: 1;
+    }
+    .container>main{
+        flex: 1 0 auto;
+        background-color: darkgreen;
+    }
+    </style>
+    <header>header</header>
+    <main class="container">
+        <aside class="left">aside-left</aside>
+        <aside class="right">aside-right</aside>
+        <main>main-content</main>
+    </main>
+    <footer></footer>
+</body>
+</html>

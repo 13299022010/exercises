@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+         .parent{
+             height: 300px;
+             border: 1px red solid;
+             text-align: center;
+         }
+         .parent::after{
+             content: "";
+             line-height: 300px;
+         }
+         /* .parent :first-child{
+             line-height: 300px;
+             display: inline-block;
+         } */
+         .child{
+             background-color: brown;
+             display: inline-block;/*高度与基线对齐*/
+        }
+    </style>
+    <div class="parent">
+        <!-- <div class="test">1</div> -->
+        <divc class="child">center</divc>
+    </div>
+</body>
+</html>

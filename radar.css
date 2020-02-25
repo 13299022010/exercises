@@ -1,0 +1,230 @@
+.container{
+    display: grid;
+    grid:20px 20px 65vh 25vh 18px/ 150px 1fr;  
+    border: 0.5px solid #9e9e9e;
+    background-color: #dddddd;
+}
+.middle{
+    background: url(./middle.svg);
+    background-size: contain;
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.selected{
+    background-color: #eee;
+}
+.active{
+    background-color: white;
+}
+header{
+    grid-area: 1/1/2/3;
+    background-color: rgb(60, 168, 60);
+}
+.tools{
+    grid-area: 2/1/3/3;
+    background-color: #dddddd;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 12px;
+}
+.tools>span{
+    margin-right: 20px;
+    line-height: 22px;
+}
+aside{
+    grid-area: 3/1/5/2;
+    background-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+aside>div:nth-child(1){
+    background-color: #b0b0b0;
+    display: flex;
+}
+aside>div:nth-child(1) span:first-child{
+    flex: 1;
+}
+aside>div:nth-child(1) span:nth-child(2){
+    margin-right: 10px;
+    width: 8px;
+    height: 8px;
+}
+aside>div:nth-child(1) span:nth-child(3){
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+.list-icon{
+    background: url(./列表.svg);
+}
+.icon{
+    background-size: contain;
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    position: relative;
+    display: inline-block;
+    margin:0 5px 0 3px;
+}
+aside>div:nth-child(2){
+    background-color: #dddddd;
+    border: 0.5px solid #9e9e9e;
+    margin: 1px;
+}
+aside>div:nth-child(3){
+    background-color: white;
+    border: 0.5px solid #9e9e9e;
+    margin: 1px 2px;
+    flex:1;
+}
+.team-icon{
+    background: url(./集群.svg);
+}
+.all-icon{
+    background: url(./集合.svg);
+}
+.bkg-icon{
+    background: url(./背景.svg);
+}
+aside>div:nth-child(4){
+    background-color: #dddddd;
+    border: 0.5px solid #9e9e9e;
+    margin: 1px;
+}
+aside>div:nth-child(5){
+
+}
+main{
+    grid-area: 3/2/4/3;
+    background-color: white;
+    border: 0.5px solid #9e9e9e;
+    margin: 1px;
+}
+.control{
+    grid-area: 4/2/5/3;
+    background-color: #ddd;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid #9e9e9e;
+    margin: 2px 1px;
+}
+.control div:first-child span{
+    padding:2px 5px 0 2px;
+}
+.control div:last-child{
+    flex-grow: 1;
+    background-color: white;
+}
+footer{
+    grid-area: 5/1/6/3;
+    font-size: 12px;
+}
+.btn{
+    background-color: #aeaeae;
+    padding: 1px 3px;
+    border: 0.5px solid #9e9e9e;
+    margin: 1px 0 0 10px;
+}
+.operation{
+    display: flex;
+    font-size: 14px;
+}
+.operation div:first-child{
+    flex-basis: 150px;
+}
+.operation div:nth-child(2){
+    flex: 1;
+}
+.operation div:last-child{
+    flex-basis: 90px;
+    display: flex;
+    justify-content: space-around;
+}
+.state{
+    display: inline-block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    /* background-color: rgb(108, 172, 13); */
+    background-color: red;
+    margin: 0 3px;
+}
+.lists{
+    list-style: none;
+    margin: 0;
+}
+.lists>li{
+    padding: 3px;
+}
+.client{
+    grid-area: 1/1/2/2;
+    background: url(./Client.svg) no-repeat;
+    width: 32px;
+    height: 32px;
+}
+.normal{
+    background: url(./Servernormal.svg) no-repeat;
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+}
+.alarm{
+    background: url(./server.svg) no-repeat;
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+}
+.team{
+    display: grid;
+    width: 22%;
+    grid:40px 40px 40px 40px/40px 40px 1fr;
+}
+.server1{
+    grid-area: 2/2/3/3;
+}
+.server2{
+    grid-area: 3/2/4/3;
+}
+.server3{
+    grid-area: 4/2/5/3;
+}
+.line1{
+    grid-area: 2/1/3/2;
+}
+.line2{
+    grid-area: 3/1/4/2;
+}
+.line3{
+    grid-area: 4/1/5/2;
+}
+.line-common{
+    border:1px solid black;
+    border-color: transparent transparent black black;
+    position: relative;
+    top: -50%;
+    left: 50%;
+}
+.info1{
+    grid-area: 2/3/3/4;
+}
+.info2{
+    grid-area: 3/3/4/4;
+}
+.info3{
+    grid-area: 4/3/5/4;
+}
+.info3 span{
+    color: red;
+}
+.info-common{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 12px;
+    border: 1px #ccc solid;
+}
