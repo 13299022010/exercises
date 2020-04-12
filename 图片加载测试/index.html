@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="http://seopic.699pic.com/photo/40006/3343.jpg_wh1200.jpg" alt="">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js"></script>
+    <!-- 同时加载 -->
+    <div class="father">
+        <div class="child"></div>
+    </div>
+    <!-- 给父亲设置display：none相当于div.child不存在，所以不会加载.child中的背景图片
+    给div.child设置display：none会加载图片，图片和css同时加载 -->
+    <div class="fatherimg">
+        <img src="https://file.chongbuluo.com/attachment/forum/201509/17/123737x6po3djjrd5o5rbl.jpg" alt="">
+    </div>
+    <!-- 如果孩子标签是img标签的话不论谁被display：none都还是会发送请求
+     -->
+</body>
+</html>

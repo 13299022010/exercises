@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change fontSize</title>
+</head>
+<body>
+    <div class="box">
+        <p>
+            asdasdasdasdasdasdadsa
+            asdasdasdasdasdasdadsa
+            asdasdasdasdasdasdadsa
+            asdasdasdasdasdasdadsa
+        </p>
+    </div>
+    <button class="to-big">big</button>
+    <button class="to-small">small</button>
+    <script>
+        // function $$(str){
+        //     return document.querySelector(str)
+        // }
+        const $$ = str => document.querySelector(str)
+        let bigBtn = $$(".to-big")
+        let smallBtn = $$(".to-small")
+        let p = $$('p')
+        bigBtn.addEventListener('click',function(){
+            p.style.fontSize = parseInt(getComputedStyle(p).fontSize) + 2 + "px"
+            console.log("font size: "+ getComputedStyle(p).fontSize)
+        })
+        smallBtn.addEventListener('click',function(){
+            p.style.fontSize = parseInt(getComputedStyle(p).fontSize) - 2 + "px"
+            console.log("font size: "+ getComputedStyle(p).fontSize)
+        })
+    </script>
+</body>
+</html>

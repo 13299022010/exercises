@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elec_clock</title>
+    <style>
+        body{
+            width: 200px;
+        }
+        section{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <section class="timer">
+        <span class="hour">{{hour}}</span>:
+        <span class="minute">{{minute}}</span>:
+        <span class="second">{{second}}</span>
+    </section>
+    <section class="operation">
+        <button class="begin">开始</button>
+        <button class="stop">停止</button>
+    </section>
+
+    <script>
+        let timer = {hour:0,minute:0,second:0}
+        const $$ = document
+        const $hour = $$.querySelector(".hour")
+        const $minute = $$.querySelector(".minute")
+        const $second = $$.querySelector(".second")
+        refresh()
+        let id
+        Object.defineProperty(timer,"second_change",{
+            configurable:true,
+            enumerable:true,
+            set(){
+                console.log("here")
+                showtime()
+                //  getNow()
+                //  refresh()
+            }
+        })
+        $$.querySelector(".begin").addEventListener("click",function(){
+            // getNow()
+            // refresh()
+            showtime()
+            id = setInterval(()=>{    
+                timer.second_change = "changing"
+            },1000)
+        },false)
+        $$.querySelector(".stop").addEventListener("click",function(){
+            clearInterval(id)
+        },false)
+        
+        function getNow(){
+            let nowTime = new Date()
+            let hour = nowTime.getHours()
+            let minute = nowTime.getMinutes()
+            let second = nowTime.getSeconds()
+            timer.hour = hour>=10?hour:"0"+hour
+            timer.minute = minute>=10?minute:"0"+minute
+            timer.second = second>=10?second:"0"+second
+        }
+        function refresh(){
+            $hour.innerHTML = timer.hour||"00"
+            $minute.innerHTML = timer.minute||"00"
+            $second.innerHTML = timer.second ||"00"
+        }
+        
+        function showtime(){
+            [timer.hour,timer.minute,timer.second] = new Date().toString().match(/\d{2}(?=:)/g).concat(new Date().toString().match(/\d{2}(?=\sGMT)/g)) 
+            refresh()
+        }
+
+    </script>
+</body>
+</html>

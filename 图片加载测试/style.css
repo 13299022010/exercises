@@ -1,0 +1,19 @@
+#no-one{
+    background-image: url(http://img95.699pic.com/photo/40005/6424.jpg_wh860.jpg);
+    /* 选中的是不存在的元素，不加载图片 */
+}
+
+.father{
+    /* display: none; */
+}
+.child{
+    display: none;
+    background-image: url(http://www.egouz.com/uploadfile/2013/0619/20130619092158323.jpg);
+}
+
+.fatherimg>img{
+    display: none;
+}
+.fatherimg{
+    display: none;
+}

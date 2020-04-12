@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="selectAll" type="checkbox">all
+    <ul class="checkList">
+        <li><input type="checkbox">1</li>
+        <li><input type="checkbox">2</li>
+        <li><input type="checkbox">3</li>
+        <li><input type="checkbox">4</li>
+    </ul>
+
+    <script>
+        let checkList = document.querySelector(".checkList")
+        let lis = Array.from(checkList.children)
+        let all = document.querySelector(".selectAll")
+        
+        checkList.onclick = function(e){
+            let ele = e.target
+            if(ele.localName!=='input'){
+                return
+            }
+            if(ele.checked){
+                checkedOne(ele)
+            }else{
+                cancelOne(ele)
+            }
+        }
+
+        all.onclick = function(){
+            if(all.checked){
+                lis.forEach(item=>{
+                    checkedOne(item.children[0])
+                })
+            }else{
+                console.log("no")
+                lis.forEach(item=>{
+                    cancelOne(item.children[0])
+                })
+            }
+        }
+
+        function checkedOne(ele){
+            //练习属性的增删
+            let checked = document.createAttribute("checked")
+            ele.setAttributeNode(checked)
+            ele.checked = true
+        }
+
+        function cancelOne(ele){
+            ele.checked = false
+            //练习属性的增删
+            ele.removeAttribute("checked")
+        }
+        
+    </script>
+
+    <script>
+        //练习创建html元素document.createElement()，虚拟元素document.createDocumentFragment()，文本元素document.createTextNode()
+
+    </script>
+</body>
+</html>
