@@ -1,0 +1,14 @@
+/* @font-face {
+    font-family: 'MyFont';
+    src:  
+    url('./ErZiYuanXiaoGaiDing-2.ttf') format('ttf'),
+    url('./HaiPaiQiangDiaoMoDengYuanJian-2.otf') format('otf');
+            
+    font-weight: 600;
+    font-style: normal;
+} */
+
+.hello{
+    color:blue;
+    /* font-family: 'MyFont'; */
+}

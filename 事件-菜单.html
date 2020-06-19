@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件-菜单</title>
+</head>
+<style>
+    .menu-area{
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+    .menu{
+        list-style: none;
+        background-color: cadetblue;
+        margin: 0;
+        padding: 0;
+        width: 120px;
+        display: none;
+    }
+    .menu li{
+        padding: 3px 5px;
+        border: .5px solid #ddd;
+    }
+    .menu.show{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX();
+    }
+</style>
+<body>
+    <div class="menu-area">
+        这个片区右键菜单
+    </div>
+    <ul class="menu">
+        <li>菜单第一行</li>
+        <li>第二行</li>
+        <li>第三行</li>
+        <li>第四行</li>
+    </ul>
+    <script>
+        const $area = document.querySelector('.menu-area')
+        const $menu = document.querySelector('.menu')
+
+        $area.addEventListener('contextmenu',function(e){
+            e.preventDefault()
+            let x = e.offsetX+'px'
+            let y = e.offsetY+'px'
+            $menu.style.transform = `translate(${x},${y})`
+            $menu.classList.add('show')
+        })
+    </script>
+</body>
+</html>

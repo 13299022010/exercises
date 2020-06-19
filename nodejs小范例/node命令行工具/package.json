@@ -1,0 +1,21 @@
+{
+  "name": "weatherlh-cli",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "weather": "./index.js"
+  },
+  "dependencies": {
+    "weatherlhpdd": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather-cli"
+  ],
+  "author": "liuhe",
+  "license": "ISC"
+}

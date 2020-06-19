@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preventDefault-form</title>
+    <style>
+        .name{
+            width: 200px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="/action" method="get">
+        <input class="name" type="text" placeholder="输入名字（字母下划线数字>8位）">
+        <button class="sub-btn" type="submit">提交</button>
+    </form>
+    <script>
+        const $btn = document.querySelector('.sub-btn')
+        const $name = document.querySelector('.name')
+        function submit(){
+            console.log("submit success")
+        }
+        $btn.addEventListener('click',function(e){
+            e.preventDefault()
+            console.log($name.value)
+            let res =/^[0-9A-Za-z_]{8,}$/g.test($name.value)
+            console.log(res)
+            if(res){
+                submit()
+            }else{
+                window.alert("wrong name")
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let url = 'http://rap2api.taobao.org/app/mock/244238/weather?city=北京' 
+        // let xhr = new XMLHttpRequest() 
+        // xhr.open('GET', url, true) 
+        // xhr.onreadystatechange = function(){  
+        // if(xhr.readyState === 4) {  
+        // // xhr.DONE === 4 也可
+        //     if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+        //         console.log(JSON.parse(xhr.responseText))    
+        //     } else {      
+        //         console.log('服务器异常')    
+        //     }  
+        // } 
+        // } 
+        // xhr.onerror = function(){   // 可选
+        //     console.log('服务器异常') 
+        // }
+        // xhr.send()
+
+
+
+        // let url = 'http://rap2api.taobao.org/app/mock/244238/weather?city=北京' 
+        // let xhr = new XMLHttpRequest() 
+        // xhr.open('GET', url, true) 
+        // xhr.onload = function(){  if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){    console.log(xhr.response)  } else {    console.log('数据异常')  } } 
+        // xhr.responseType = 'json'  //兼容性稍微差一些 
+        // xhr.onerror = function(){  console.log()}
+        // xhr.send()
+
+        // let url = 'http://rap2api.taobao.org/app/mock/244238/login' 
+        // let xhr = new XMLHttpRequest() 
+        // xhr.timeout = 3000  //可选，设置请求超时时间 
+        // xhr.open('POST', url, true) 
+        // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded') 
+        // xhr.onload = function(){  if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){    
+        //     console.log(JSON.parse(xhr.responseText))  }
+        //      else {    
+        //          console.log('响应异常')  
+        //         }
+        //     }
+        // xhr.ontimeout = function() { console.log('请求超时')}
+        // xhr.onerror = function(){}
+        // xhr.send('username=hunger&password=12345678') 
+
+        // let formData = new FormData()
+        // formData.append('username', 'abcdefg')
+        // formData.append('password', '123456')
+        // let url = 'http://rap2api.taobao.org/app/mock/244238/register' 
+        // let xhr = new XMLHttpRequest()
+        // xhr.open('POST', url, true)
+        // xhr.onload = function(){
+        // if(xhr.status === 200 || xhr.status === 304) {
+        // console.log(JSON.parse(xhr.responseText))
+        // } else {
+        // console.log('接口异常')
+        // }
+        // }
+        // xhr.send(formData )
+
+        let url = 'http://rap2api.taobao.org/app/mock/244238/login' 
+        let data = {username: 'jirengu', password: '123456'}
+        fetch(url, {
+        method: 'POST', body: Object.entries(data).map(arr => arr[0] + '=' + arr[1]).join('&'), headers: {
+        'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(res => {
+            // console.log(res.json())
+            return res.json()//接收response流并转换为json格式的promise对象
+            
+        })
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response))
+    </script>
+    <!-- <script src="./封装ajax.js"></script> -->
+</body>
+</html>

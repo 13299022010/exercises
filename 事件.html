@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <style>
+        .box{
+            padding: 10px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>事件流就是点击或者其他事件触发的时候
+            就会生成事件流，这个流会一直从document>html>body往下
+            直到找到目标元素，再从目标元素一直往上
+            返回最顶层的document,在这个过程中只有目标元素
+            监听了事件流，所以会触发事件，其他元素没有监听
+            就不会触发函数的执行
+        </p>
+        <button class="btn">点我</button>
+    </div>
+    <script>
+        const $btn = document.querySelector('.btn')
+
+        $btn.onclick = function(){
+            console.log('点了我一下')
+        }
+        $btn.addEventListener('click',function(){
+            console.log('点一下另一事件')
+        },true)
+
+    </script>
+</body>
+</html>

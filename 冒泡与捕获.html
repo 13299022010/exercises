@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡与捕获</title>
+    <style>
+        div{
+            border: black 1px solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        container
+        <div class="child">
+            box
+            <div class="target">target</div>
+        </div>
+    </div>
+    <script>
+        const $ = s => document.querySelector(s)
+
+        $('.parent').addEventListener('click',function(e){
+            console.log('在捕获阶段，parent开始处理')
+            // e.stopPropagation()
+        },true)
+
+        $('.child').addEventListener('click',function(e){
+            console.log('在捕获阶段，child开始处理')
+            // e.stopPropagation()//阻止事件流向后传递
+        },true)
+
+        $('.target').addEventListener('click',function(e){
+            console.log('在捕获阶段，target开始处理')
+            // e.stopPropagation()
+        },true)
+
+        $('.parent').addEventListener('click',function(e){
+            console.log('在冒泡阶段，parent开始处理')
+            // e.stopPropagation()
+        },false)
+        $('.child').addEventListener('click',function(e){
+            console.log('在冒泡阶段，child开始处理')
+            e.stopPropagation()
+        },false)
+        $('.target').addEventListener('click',function(e){
+            console.log('在冒泡阶段，target开始处理')
+            // e.stopPropagation()
+        },false)
+        $('.target').addEventListener('click',function(e){
+            console.log('zhichuxian  yici')
+            // e.stopPropagation()
+        },{capture: true, once:true, passive: true})
+    </script>
+</body>
+</html>

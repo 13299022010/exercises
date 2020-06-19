@@ -1,0 +1,25 @@
+{
+  "name": "weatherlhpdd",
+  "version": "1.1.0",
+  "description": "weather",
+  "main": "index.js",
+  /*"bin": {
+    "weather": "./index.js"
+  },-g全局执行得时候会在/usr/local/bin下面创建一个
+  软连接指向我们得脚本index.js，脚本的包会被安装在
+  /usr/local/lib/node_modules*/
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "liuhe",
+  "license": "ISC",
+  "dependencies": {//项目本身得依赖
+    "axios": "^0.19.2"
+  },
+  "devDependencies":{//自己使用项目时配合得一些依赖工具
+    "webpack":"^3.1.0"
+  }
+}

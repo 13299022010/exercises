@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    
+    function PromiseEasy(fn){
+        this.state = 'pending'
+        this.succeed = null
+        this.fail = null
+        fn(this.resolve.bind(this),this.reject.bind(this))
+    }
+    PromiseEasy.prototype.resolve = function(data){
+        setTimeout(()=>{
+            this.state = 'fulfilled'
+            this.succeed(data)
+        })
+    }
+    PromiseEasy.prototype.reject = function(err){
+        setTimeout(()=>{
+            this.state = 'rejected'
+            this.fail(err)
+        })
+    }
+    PromiseEasy.prototype.then = function(succeed,fail){
+        this.succeed = succeed
+        this.fail = fail
+    }    
+
+    const getWeatherByCity = city =>  new PromiseEasy((resolve,reject)=>{
+            let xhr = new XMLHttpRequest()
+            xhr.open('GET',
+            `http://rap2.taobao.org:38080/app/mock/253326/getWeather?city=${city}`,
+            true
+            )
+            xhr.onload = ()=>{
+                if(xhr.status === 200){
+                    let text = JSON.parse(xhr.responseText)
+                    resolve(text)
+                }else{
+                    reject('请求weather失败')
+                }
+            }
+            xhr.onerror= ()=>{
+                reject('weather')
+            }
+            xhr.send()
+        })
+
+        getWeatherByCity('北京')
+            .then(data => {
+                console.log(data)
+            },err=>console.log(err))
+            
+
+        
+    </script>
+</body>
+</html>

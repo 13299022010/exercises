@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fullpage简易版</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .page{
+            width: 98.8vw;
+            height: 100vh;
+        }
+        .page1{
+            background-color: crimson;
+        }
+        .page2{
+            background-color: cyan;
+        }
+        .page3{
+            background-color: darkgrey;
+        }
+        .page4{
+            background-color: darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <section class="page page1">page1</section>
+    <section class="page page2">page2</section>
+    <section class="page page3">page3</section>
+    <section class="page page4">page4</section>
+    <script>
+        const $part = document.querySelector('.page')
+        window.addEventListener('keyup',function(e){
+            console.log(document.documentElement.clientHeight)
+            console.dir($part)
+            if(e.keyCode===40){
+                e.preventDefault()
+                window.scrollBy({top:$part.scrollHeight,behavior:"smooth"})
+            }else if(e.keyCode === 38){
+                e.preventDefault()
+                window.scrollBy({top:-$part.scrollHeight,behavior:"smooth"})
+            }
+        })
+
+        function isShow(ele){
+            const tmp = ele.getBoundingClientRect()
+            if((tmp.top+tmp.y)>0&& (tmp.top<document.documentElement.scrollHeight)){
+                return true
+            }
+            return false
+        }
+    </script>        
+</body>
+</html>
