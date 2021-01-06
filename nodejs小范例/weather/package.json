@@ -17,7 +17,7 @@
   "author": "liuhe",
   "license": "ISC",
   "dependencies": {//项目本身得依赖
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "devDependencies":{//自己使用项目时配合得一些依赖工具
     "webpack":"^3.1.0"
